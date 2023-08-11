@@ -1,46 +1,64 @@
-# Getting Started with Create React App
+# Recruitment task for company X
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+## Task content
 
-## Available Scripts
+![app screen](./app_screen.png)
+
+### Summary
+A component to select keys from a JSON object that returns the keyʼs path.
+
+### User Story
+X users can connect an API and need a user-friendly solution to select values from the response.
+
+### Objective
+Build a React Function Component that takes in JSON data as an argument and satisfies the acceptance criteria.
+
+### Acceptance Criteria
+-  The JSON data is correctly displayed: indention, (curly) brackets, string values, number values, boolean values, arrays, objects, etc.
+- All keys can be interacted with and are highlighted (e.g. color: blue)
+- When a user clicks on a key, it shows its path and value:
+  - When a user clicks on “date” it shows “res.date” and "2021-10-27T07:49:14.896Z"
+  - When a user clicks on “hasError” it shows “res.hasError” and “false”
+  - When a user clicks on “prop” in the first object in the `fields` array, it shows
+“res.fields[0].prop” and “iban”
+
+### Out of Scope
+An input field that displays the correct value when given a path to the property (as seen in the video)
+
+### Bonus points
+Use Typescript
+
+### Demo Data
+```
+{
+   "date":"2021-10-27T07:49:14.896Z",
+   "hasError":false,
+   "fields":[
+      {
+         "id":"4c212130",
+         "prop":"iban",
+         "value":"DE81200505501265402568",
+         "hasError":false
+      }
+   ]
+}
+```
+
+## How to run the app
 
 In the project directory, you can run:
 
 ### `npm start`
 
-Runs the app in the development mode.\
-Open [http://localhost:3000](http://localhost:3000) to view it in the browser.
+I have also deployed the app to vercel, you can check it here:
 
-The page will reload if you make edits.\
-You will also see any lint errors in the console.
+### [https://recruitment-task-json-explorer.vercel.app/](https://recruitment-task-json-explorer.vercel.app/)
 
-### `npm test`
+## Comments from developer:
 
-Launches the test runner in the interactive watch mode.\
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
+Actually this task was pretty nice I really enjoyed to worked on it.
 
-### `npm run build`
-
-Builds the app for production to the `build` folder.\
-It correctly bundles React in production mode and optimizes the build for the best performance.
-
-The build is minified and the filenames include the hashes.\
-Your app is ready to be deployed!
-
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
-
-### `npm run eject`
-
-**Note: this is a one-way operation. Once you `eject`, you can’t go back!**
-
-If you aren’t satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
-
-Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you’re on your own.
-
-You don’t have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn’t feel obligated to use this feature. However we understand that this tool wouldn’t be useful if you couldn’t customize it when you are ready for it.
-
-## Learn More
-
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
-
-To learn React, check out the [React documentation](https://reactjs.org/).
+1. I wanted to build fast, so I have used CRA + Typescript + Tailwind
+2. In Tailwind, I could move colors to some variables, but decided to not to do that, this is not exactly "production" quality project, I wanted to demonstrate skills you asked for.
+3. I've added TS, what was interesting for me `JSON.parse(json)` has type `any`. I decided to follow this practice in whole project, although in real project would be good to have some discussion if that could be improved.
+4. I have decided to add one functionality out of scope - textarea to paste json. It was easier to test this component for me. Should be also easier for reviewer.
